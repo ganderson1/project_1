@@ -1,0 +1,2 @@
+"0","  candyall$age <- as.numeric(as.character(candyall$age))"
+"2","NAs introduced by coercion"

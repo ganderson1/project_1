@@ -1,0 +1,6 @@
+"0","candy2015_raw <- read_excel(""raw_data/boing-boing-candy-2015.xlsx"") %>% clean_names()"
+"0","candy2016_raw <- read_excel(""raw_data/boing-boing-candy-2016.xlsx"") %>% clean_names()"
+"0","candy2017_raw <- read_excel(""raw_data/boing-boing-candy-2017.xlsx"") %>% clean_names()"
+"2","New names:
+* `` -> ...114
+"

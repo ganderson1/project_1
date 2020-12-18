@@ -1,0 +1,3 @@
+"0","candyclean %>% "
+"0","  select(7:114) %>% # select columns containing rating for all candies  "
+"0","  tally(!is.na(.), name = 'total_number_of_candy_ratings' )"

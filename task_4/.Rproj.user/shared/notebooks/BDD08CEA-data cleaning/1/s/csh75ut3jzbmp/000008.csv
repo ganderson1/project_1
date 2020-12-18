@@ -1,0 +1,3 @@
+"0","candy2015_raw <- candy2015_raw %>% select(1:3, sort(colnames(.)))"
+"0","candy2016_raw <- candy2016_raw %>% select(1:6, sort(colnames(.)))"
+"0","candy2017_raw <- candy2017_raw %>% select(1:6, sort(colnames(.)))"

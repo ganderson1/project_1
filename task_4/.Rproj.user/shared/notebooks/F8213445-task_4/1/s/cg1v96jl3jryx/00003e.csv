@@ -1,0 +1,5 @@
+"0","candyclean %>% "
+"0","  select(2, 4) %>% "
+"0","  filter(age > 0 & age < 120) %>% "
+"0","  group_by(going_out) %>% "
+"0","  summarise_if(is.numeric, mean, na.rm=TRUE) "

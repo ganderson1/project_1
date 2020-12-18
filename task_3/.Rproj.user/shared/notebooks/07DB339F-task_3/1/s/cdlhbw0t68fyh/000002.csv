@@ -1,0 +1,4 @@
+"0","raw_bird_data %>% "
+"0","#group_by(record_id) %>%   "
+"0","group_by(species_scientific_name_taxon_age_sex_plumage_phase) %>%"
+"0","  tally(sort = TRUE)"

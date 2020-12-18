@@ -1,0 +1,8 @@
+"0","usa_pat <- c(""'ud'|'usa'|'us'|'usa'|'united states of america'|'usa'|'united states'|'united states'|'ussa'|'u.s.a'|'murica'|'usa!'|'usa (i think but it's an election year so who can really tell)'|'usa'|'u.s.'|'us'|'america'|'units states'|'united states'|'usa usa usa'|'the best one - usa'|'usa! usa! usa!'|'u.s.'|'the yoo ess of aaayyyyyy'|'united states of america'|'usa!!!!!!'|'usa! usa!'|'united sates'|'sub-canadian north america... 'merica'|'trumpistan'|'u.s.'|'merica'|'united states'|'united stetes'|'usa usa usa usa'|'united states of america'|'united state'|'united staes'|'u.s.a.'|'usausausa'|'us of a'|'unites states'|'the united states'|'north carolina'|'unied states'|'u s'|'the united states of america'|'unite states'|'usa? hard to tell anymore..'|''merica'|'usas'|'pittsburgh'|'new york'|'california'|'usa'|'i pretend to be from canada'|'but i am really from the united states.'|'united stated'|'ahem....amerca'|'new jersey'|'united ststes'|'united statss'|'murrika'|'usaa'|'alaska'|'united states'|'u s a'|'united statea'|'united ststes'|'usa usa usa!!!!'|'the republic of cascadia'|'cascadia'|'god's country'|'n. america'|'eua'|'narnia'|'i don't know anymore'|'cascadia'|'unhinged states'|'i don't know anymore'"")"
+"0",""
+"0","#can_pat <- c(""can|canada|canada`|canae|soviet canuckistan"")"
+"0","#uk_pat <- c(""endland|england|scotland|u.k.|uk|united kingdom"")"
+"0",""
+"0","candyall <- candyall %>% "
+"0","str_replace_all(usa_pat, 'usa')"
+"2","argument is not an atomic vector; coercing"

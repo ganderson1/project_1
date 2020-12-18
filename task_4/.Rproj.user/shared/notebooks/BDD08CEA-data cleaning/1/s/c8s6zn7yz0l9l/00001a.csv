@@ -1,0 +1,8 @@
+"0",""
+"0","candyall <- candyall  %>% "
+"0","      mutate(country = tolower(country)) "
+"0","      "
+"0",""
+"0",""
+"0",""
+"0","#unique(candyall[c(""country"")])"

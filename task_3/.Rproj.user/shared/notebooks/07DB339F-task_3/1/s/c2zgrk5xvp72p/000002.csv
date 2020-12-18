@@ -1,0 +1,2 @@
+"0","raw_bird_data2 <- read_excel(""raw_data/seabirds.xlsx"", sheet = 2) %>% clean_names()"
+"2","Expecting logical in I21756 / R21756C9: got 'M'"

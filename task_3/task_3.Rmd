@@ -1,0 +1,150 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+1.3.1 Some cleaning hints
+Do we need all the variables for this data?
+
+Bird data
+  RECORD, RECORD ID, common name, scientific name, Species abbreviation, COUNT, 
+Ship data
+  RECORD, RECORD ID, LAT, LONG
+
+
+  
+Penguin genii
+    Aptenodytes, Eudyptula, Eudyptes, Megadyptes, Pygoscelis, Spheniscus 
+
+You’ll need to join the ship data to the bird record data
+1.3.2 Analysis questions
+For each question where we ask for bird names, give the bird’s common name, scientific name and species abbreviation.
+
+
+
+
+Which bird had the most individual sightings?
+Which bird had the highest total count?
+Which bird had the highest total count above a latitude of -30?
+How many different types of birds were only ever seen in groups of 1?
+How many penguins were seen? (Hint: there are many types of penguin)
+
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(janitor)
+
+excel_sheets("raw_data/seabirds.xls")
+
+raw_ship_data <- read_excel("raw_data/seabirds.xls", sheet = 1) %>% clean_names()
+raw_bird_data <- read_excel("raw_data/seabirds.xls", sheet = 2) %>% clean_names()
+
+raw_ship_data %>% 
+  select(record, record_id, lat, long)
+
+raw_bird_data %>% 
+  select(record, record_id, species_common_name_taxon_age_sex_plumage_phase, species_scientific_name_taxon_age_sex_plumage_phase, species_abbreviation, count)
+
+glimpse(raw_bird_data)
+```
+#Cleaning
+#Extract all species names
+
+#merge adult/subadult/plumage records
+
+#Find and replace with current species (genus) name
+#Catharacta / Stercorarius sp. = Stercorarius sp.
+# Diomedea impavida / melanophrys = Thalassarche impavida / melanophrys
+# Larus bulleri = Chroicocephalus bulleri
+# Larus novaehollandiae = Chroicocephalus novaehollandiae
+# Lugensa brevirostris = Aphrodroma brevirostris
+#  #Procelsterna cerulea = Anous cerulea
+#  Puffinus bulleri = Ardenna bulleri
+#  Puffinus carneipes = Ardenna carneipes
+#  Puffinus carneipes / pacificus = Ardenna carneipes / pacificus
+#  Puffinus griseus = Ardenna griseus
+#  Puffinus pacificus = Ardenna pacificus
+#  Puffinus tenuirostris	= Ardenna tenuirostris
+#  Puffinus tenuirostris / griseus	= Ardenna tenuirostris / griseus
+#  Sterna albifrons = Sternula albifrons
+#  Sterna bergii	= Thalasseus bergii
+#  Stictocarbo punctatus	= Phalacrocorax punctatus
+  
+#Typos  
+# Phaeton sp. = Phaethon sp.
+#  Thallassarche cauta cauta / steadi = Thalassarche cauta cauta / steadi
+#  Thallassarche sp = Thalassarche sp.
+  
+#Issues
+#  Procellaria parkinsoni / Pterodroma macroptera gouldi	= !2 genera
+#  Procellaria parkinsoni / Puffinus (Ardenna) carneipes	= !2 genera
+#  Eudyptes / Magadyptes sp	= !2 genera in one row
+  
+#Still on task 1 @ 16:00 Tues so used find and replace on xls file in google sheets to (carefully) make changes to data (cross referencing with R ouput for number of unique species name forms)
+
+#Also used find and replace here to remove any suffx terms (AD, JUV, SUBAD, IMM, DRK, LGHT etc)
+
+#Exported from google sheets as new excel file (google sheets only allows .xlsx output) to perform rest of the cleaning
+
+
+```{r}
+raw_bird_data %>% 
+  group_by(species_scientific_name_taxon_age_sex_plumage_phase) %>% 
+  summarise(
+    n = n()
+  )# %>% 
+#tally(sort = TRUE)
+  
+#group_by(record_id) %>%   
+#group_by(species_scientific_name_taxon_age_sex_plumage_phase) %>%
+ # tally(sort = TRUE)
+```
+```{r}
+raw_bird_data %>% 
+#group_by(record_id) %>%   
+group_by(species_scientific_name_taxon_age_sex_plumage_phase) %>%
+  tally(sort = TRUE)
+```
+
+```{r}
+raw_bird_data2 <- read_excel("raw_data/seabirds.xlsx", sheet = 2) %>% clean_names()
+```
+
+
+```{r}
+raw_bird_data2 %>% 
+group_by(species_scientific_name_taxon_age_sex_plumage_phase) %>%
+  tally(sort = TRUE)
+```
+
+1.
+
+
+Merge species to genus as data messy and no way to split separate species out of observations, also some species recorded under different genera at different times due to changes in how things classified and some species now placed in different genera also. All observed species wer checkedto see what current accepted binomial name is and this used as basis for further analysis.
+```{r}
+raw_bird_data %>% 
+mutate(genus = str_extract(species_scientific_name_taxon_age_sex_plumage_phase, "[A-Z][a-z]+"))%>% 
+group_by(genus) %>%
+  tally(sort = TRUE)
+```
+```{r}
+raw_bird_data2 %>% 
+mutate(genus = str_extract(species_scientific_name_taxon_age_sex_plumage_phase, "[A-Z][a-z]+"))%>% 
+group_by(genus) %>%
+  tally(sort = TRUE)
+```
+
+2.
+
+ 
+```{r}
+raw_bird_data2 %>%
+  group_by(record_id) %>%
+  summarise(favourite_count_total = sum(count)) %>%
+  arrange(desc(favourite_count_total))
+```
+  
+ hmmmmm, suspect numbers here
+  records 86010070, 4024023, 4133105, 4133106, 2119014, 87010028
+  
+  ran out of time to come back and finish

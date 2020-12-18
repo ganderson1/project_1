@@ -1,0 +1,4 @@
+"0","candyclean %>% "
+"0","  select(starburst) %>% "
+"0","  filter(str_detect(starburst, ""DESPAIR"")) %>% "
+"0","  tally(name = 'How many respondents despair over starburst')"

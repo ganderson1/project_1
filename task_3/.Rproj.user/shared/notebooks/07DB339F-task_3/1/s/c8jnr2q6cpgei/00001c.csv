@@ -1,0 +1,39 @@
+"0","glimpse(raw_bird_data)
+"
+"1","Rows: 49,019"
+"1",""
+"1","
+"
+"1","Columns: 26"
+"1",""
+"1","
+"
+"1","$ record                                              [3m[38;5;246m<dbl>[39m[23m 1, 2, 3, 4, 5,…
+$ record_id                                           [3m[38;5;246m<dbl>[39m[23m 1083001, 10830…
+$ species_common_name_taxon_age_sex_plumage_phase     [3m[38;5;246m<chr>[39m[23m ""Royal / Wande…
+$ species_scientific_name_taxon_age_sex_plumage_phase [3m[38;5;246m<chr>[39m[23m ""Diomedea epom…
+$ species_abbreviation                                [3m[38;5;246m<chr>[39m[23m ""DIOEPOSANANTE…
+$ age                                                 [3m[38;5;246m<chr>[39m[23m NA, NA, NA, NA…
+$ wanplum                                             [3m[38;5;246m<dbl>[39m[23m NA, NA, NA, NA…
+$ plphase                                             [3m[38;5;246m<chr>[39m[23m NA, NA, NA, NA…
+$ sex                                                 [3m[38;5;246m<lgl>[39m[23m NA, NA, NA, NA…
+$ count                                               [3m[38;5;246m<dbl>[39m[23m 6, 2, 8, 2, 4,…
+$ nfeed                                               [3m[38;5;246m<dbl>[39m[23m 0, 0, 0, 0, 0,…
+$ ocfeed                                              [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""N"",…
+$ nsow                                                [3m[38;5;246m<dbl>[39m[23m 0, 0, 0, 0, 0,…
+$ ocsow                                               [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""N"",…
+$ nsoice                                              [3m[38;5;246m<dbl>[39m[23m 0, 0, 0, 0, 0,…
+$ ocsoice                                             [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""N"",…
+$ ocsoshp                                             [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""N"",…
+$ ocinhd                                              [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""N"",…
+$ nflyp                                               [3m[38;5;246m<dbl>[39m[23m 0, 0, 0, 0, 0,…
+$ ocflyp                                              [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""N"",…
+$ nacc                                                [3m[38;5;246m<dbl>[39m[23m 6, 2, 8, 2, 4,…
+$ ocacc                                               [3m[38;5;246m<chr>[39m[23m ""Y"", ""Y"", ""Y"",…
+$ nfoll                                               [3m[38;5;246m<dbl>[39m[23m 0, 0, 0, 0, 0,…
+$ ocfol                                               [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""N"",…
+$ ocmoult                                             [3m[38;5;246m<chr>[39m[23m ""U"", ""U"", ""U"",…
+$ ocnatfed                                            [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""N"",…"
+"1",""
+"1","
+"

@@ -1,0 +1,101 @@
+---
+title: "Task 4"
+output: html_notebook
+---
+join 3 data sets
+2016 2015 timestamp data (unique ID?)2017 unique ID
+```{r}
+library(tidyverse)
+
+candyclean <- read_csv("clean_data/clean_candy_data.csv")
+```
+
+
+What is the total number of candy ratings given across the three years. (number of candy ratings, not number of raters. Don’t count missing values)
+
+```{r}
+candyclean %>% 
+  select(7:114) %>% # select columns containing rating for all candies  
+  tally(!is.na(.), name = 'total_number_of_candy_ratings' )
+```
+
+
+
+j
+What was the average age of people who are going out trick or treating and the average age of people 3. not going trick or treating?
+age, trick or treat value
+
+```{r}
+candyclean %>% 
+  select(2, 4) %>% #select colums needed
+  filter(age > 0 & age < 120) %>% #filter ages used to sensible range
+  group_by(going_out) %>% # group by going out trick or treating or not
+  summarise_if(is.numeric, mean, na.rm=TRUE) #perform mean for ages on each category
+```
+
+
+For each of joy, despair and meh, which candy bar revived the most of these ratings?
+aggregate 
+```{r}
+candyclean %>% 
+  
+```
+
+How many people rated Starburst as despair?
+```{r}
+candyclean %>% 
+  select(starburst) %>% 
+  filter(str_detect(starburst, "DESPAIR")) %>% 
+  tally(name = 'How many respondents despair over starburst')
+  
+```
+
+
+For the next three questions, count despair as -1, joy as +1 and meh as 0.
+
+
+What was the most popular candy bar by this rating system for each gender in the dataset?
+
+```{r}
+candy_rate <- candyclean %>%
+  mutate(across(c(7:114), 
+             ~ case_when(. == "DESPAIR" ~ -1,
+                         . == "JOY" ~ 1,
+                         . == "MEH" ~ 0
+                         ))) %>% 
+  select(3, 7:114) %>% 
+  group_by(gender) %>%
+  summarize_if(is.numeric, sum, na.rm=TRUE)
+  
+```
+
+```{r}
+candy_gender <- candy_rate %>% 
+  pivot_longer(!gender, names_to = "candy_type", values_to = 'rating_total') %>% 
+  arrange(desc(rating_total), group_by = gender) 
+
+
+```
+
+
+
+What was the most popular candy bar in each year?
+```{r}
+candy_gender %>% 
+  group_by(gender, candy_type) %>%
+  summarise(
+    MaxMassByGender = max(rating_total, na.rm = T)
+  ) %>%
+  arrange(gender)
+
+```
+
+
+What was the most popular candy bar by this rating for people in US, Canada, UK and all other countries?
+no  location data for 2015
+join 2016 and 2017
+```{r}
+
+```
+
+

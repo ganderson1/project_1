@@ -1,0 +1,8 @@
+"0","candy_gender %>% "
+"0","  group_by(gender, candy_type) %>%"
+"0","  summarise("
+"0","    MaxMassByGender = max(rating_total, na.rm = T)"
+"0","  ) %>%"
+"0","  arrange(gender)"
+"2","`summarise()` regrouping output by 'gender' (override with `.groups` argument)
+"

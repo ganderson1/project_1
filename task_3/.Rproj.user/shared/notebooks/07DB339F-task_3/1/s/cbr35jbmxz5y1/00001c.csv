@@ -1,0 +1,7 @@
+"0","raw_bird_data %>% "
+"0","  group_by(species_scientific_name_taxon_age_sex_plumage_phase) %>% "
+"0","  summarise("
+"0","    n = n()"
+"0","  )# %>% "
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"

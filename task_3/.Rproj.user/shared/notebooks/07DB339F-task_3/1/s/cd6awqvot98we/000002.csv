@@ -1,0 +1,6 @@
+"0","raw_bird_data2 %>%"
+"0","  group_by(record_id) %>%"
+"0","  summarise(favourite_count_total = sum(count)) %>%"
+"0","  arrange(desc(favourite_count_total))"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"

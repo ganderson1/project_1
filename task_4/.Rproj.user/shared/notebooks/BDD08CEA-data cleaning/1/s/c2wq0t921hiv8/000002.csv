@@ -1,0 +1,2 @@
+"0","candy2017_raw <- candy2017_raw %>% "
+"0","  rename_at(vars(matches(""q[1-9]_"")), ~ str_remove(., ""q[1-9]_""))"

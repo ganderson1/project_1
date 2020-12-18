@@ -1,0 +1,4 @@
+"0","raw_bird_data2 %>% "
+"0","mutate(genus = str_extract(species_scientific_name_taxon_age_sex_plumage_phase, ""[A-Z][a-z]+""))%>% "
+"0","group_by(genus) %>%"
+"0","  tally(sort = TRUE)"
